@@ -6,3 +6,6 @@ This plugin provides a simple and quick way to copy random Lorem Ipsum words, se
 
 The design idea is based on the MacOS plugin LittleIpsum.
 
+## Official download ##
+
+https://addons.mozilla.org/de/firefox/addon/lorem-quick-ipsum/
