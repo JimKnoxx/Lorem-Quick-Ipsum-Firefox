@@ -102,6 +102,21 @@ function addClickEvent(item) {
   });
 }
 
+function loadingAnimation() {
+  const backdropItem = document.createElement('DIV');
+  backdropItem.classList.add('backdrop');
+  const loaderElement = document.createElement('DIV');
+  loaderElement.classList.add('loader');
+  backdropItem.appendChild(loaderElement);
+  document.body.appendChild(backdropItem);
+}
+
+function stopLoadingAnimation() {
+  document.querySelectorAll('.backdrop').forEach(element => {
+    element.remove();
+  });
+}
+
 document.getElementById('face').addEventListener('click', () => {
   copyImage('https://thispersondoesnotexist.com/');
 });
@@ -136,12 +151,15 @@ document.getElementById('settings').addEventListener('click', () => {
 
 /** FUNCTIONS */
 async function copyImage(imageURL) {
-  await browser.permissions.request({origins: [url]});
-  const response = await fetch(imageURL, {'mode': "cors", 'credentials': "omit"});
-  const buffer = await response.arrayBuffer();
-  console.log(response.headers);
-  console.log(buffer);
-  await browser.clipboard.setImageData(buffer, "jpeg");
+  try {
+    loadingAnimation();
+    await browser.permissions.request({origins: [imageURL]});
+    const response = await fetch(imageURL, {'mode': "cors", 'credentials': "omit"});
+    const buffer = await response.arrayBuffer();
+    await browser.clipboard.setImageData(buffer, "jpeg");
+  } finally {
+    stopLoadingAnimation();
+  }
   close();
 }
 
