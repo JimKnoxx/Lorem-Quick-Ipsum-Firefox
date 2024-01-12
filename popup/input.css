@@ -34,7 +34,6 @@ input {
 }
 
 .input-group {
-    align-items: flex-start;
     align-self: stretch;
     display: flex;
 }
