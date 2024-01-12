@@ -29,7 +29,7 @@ device.storage.sync.get({
   maxSentenceLength: 10,
   minParagraphLength: 4,
   maxParagraphLength: 8,
-  backgroundColorSelector: "#666666FF",
+  backgroundColorSelector: "#666666",
 }, (res) => {
   minWordLength = res.minWordLength;
   switch (res.wordFirstLetter) {
@@ -136,6 +136,7 @@ document.getElementById('settings').addEventListener('click', () => {
 
 /** FUNCTIONS */
 async function copyImage(imageURL) {
+  await browser.permissions.request({origins: [url]});
   const response = await fetch(imageURL, {'mode': "cors", 'credentials': "omit"});
   const buffer = await response.arrayBuffer();
   console.log(response.headers);
