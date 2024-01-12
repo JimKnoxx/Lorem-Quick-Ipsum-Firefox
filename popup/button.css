@@ -28,4 +28,5 @@
 .button-small {
   padding: 0.125rem 0.25rem;
   flex: 1 0 0;
+  white-space: nowrap;
 }
