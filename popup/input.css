@@ -9,13 +9,11 @@ input {
     gap: 0.5rem;
     min-width: 3rem;
     padding: 0.625rem 0.75rem;
+    -moz-appearance: textfield;
 
-    &::-webkit-inner-spin-button {
-        display: none;
-    }
-
-    &::-webkit-inner-spin-button:hover {
-        display: inline-block;
+    &:hover,
+    &:focus {
+        -moz-appearance: initial;
     }
 
     &:focus-visible {
@@ -31,8 +29,8 @@ input {
     display: flex;
     gap: 0.25rem;
     justify-content: center;
-    padding: 0.625rem 0.75rem;
-    width: 1rem;
+    padding: 0.675rem 0.75rem;
+    min-width: 1rem;
 }
 
 .input-group {

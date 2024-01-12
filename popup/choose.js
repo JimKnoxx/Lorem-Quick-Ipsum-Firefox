@@ -130,8 +130,7 @@ document.getElementById('picsum').addEventListener('click', () => {
 });
 
 document.getElementById('settings').addEventListener('click', () => {
-  chrome.runtime.openPermissionsPage();
-  //chrome.runtime.openOptionsPage();
+  chrome.runtime.openOptionsPage();
   close();
 });
 
